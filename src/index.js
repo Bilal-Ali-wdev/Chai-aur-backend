@@ -1,16 +1,14 @@
-//require('dotenv').config()
+//require('dotenv').config()  we not take dotenv like this we use import statement
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
-import mongoose from "mongoose";
-import express from "express"
-const app = express()
+import { app } from "./app.js";
 
 dotenv.config({
   path: "./env",
 });
 
 connectDB().then(()=>{
-   app.listen(process.env.PORT || 8001 , ()=>{
+   app.listen(process.env.PORT || 8000 , ()=>{
     console.log(`Server is running at PORT : ${process.env.PORT}`);
    }) 
 }).catch((err)=>{
